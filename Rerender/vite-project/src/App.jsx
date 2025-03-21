@@ -1,24 +1,32 @@
-import {UseState} from "react"
+import {useState} from "react"
 function App(){
-  const [title, setTitle]=UseState("This is Vaishnavi")
-
+  
+  return (
+    <div>
+      <HeaderwithButton/><br/>
+      <Header title="Vaishnavi2"/><br/>
+    </div>
+  )
+}
+function HeaderwithButton(){
+  const [title, setTitle]=useState("This is Vaishnavi")
+  
   function updateheading(){
     setTitle("My name is "+Math.random())
 
   }
-  return (
+  return(
     <div>
       <button onClick={updateheading}>Update the title</button>
       <Header title={title}></Header><br/>
-      <Header title="Vaishnavi2"></Header><br/>
     </div>
   )
 }
 
-function Header({props}){
+function Header({title}){
   return(
     <div>
-      {props.title}
+      {title}
     </div>
   )
 }
